@@ -7,7 +7,7 @@ const About = () => {
           src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
           className="max-w-sm rounded-lg shadow-2xl"
         />
-        <img className="w-[150px] h-[270px]" src={"https://i.postimg.cc/cC94wYzy/Sundarban-Tiger.jpg"} alt="" />
+        <img className="w-[150px] h-[270px] absolute right-1/2 top-1/2" src={"https://i.postimg.cc/cC94wYzy/Sundarban-Tiger.jpg"} alt="" />
        </div>
         <div>
           <h1 className="text-5xl font-bold">Box Office News!</h1>
