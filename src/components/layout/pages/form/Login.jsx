@@ -3,6 +3,12 @@
 
 
 const Login = () => {
+
+    const handleLogin = event =>{
+        event.preventDefault()
+        console.log('hellow');
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row">
@@ -11,8 +17,7 @@ const Login = () => {
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
     <h1 className="text-5xl font-bold text-center mt-5">Login now!</h1>
-      <form className="card-body">
-      
+      <form onSubmit={handleLogin} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
