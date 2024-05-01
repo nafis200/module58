@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../../providers/Authprovider";
 
 
 
@@ -5,8 +7,19 @@
 const Login = () => {
 
     const handleLogin = event =>{
+        const {signIn} = useContext(AuthContext)
         event.preventDefault()
         console.log('hellow');
+        const form = event.target;
+        const email = form.email.value
+        const password = form.password.value
+        signIn(email,password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.log(error))
+
     }
 
     return (
@@ -22,13 +35,18 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+          <input type="email" placeholder="email" 
+          className="input input-bordered"
+          name = "email"
+          required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
+          <input type="password" placeholder="password" className="input input-bordered"
+          name ="password"
+          required />
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
