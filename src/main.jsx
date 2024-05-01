@@ -12,6 +12,7 @@ import Login from './components/layout/pages/form/Login';
 import Registration from './components/layout/pages/form/Registration';
 import Authprovider from './providers/Authprovider';
 import Checkout from './components/layout/pages/Checkout';
+import Bookservices from './components/layout/pages/Bookservices';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
        {
          path: '/checkout/:id',
          element: <Checkout></Checkout>,
+         loader : ({params})=> fetch(`http://localhost:5007/services/${params.id}`)
+       },
+       {
+         path:'/book/:id',
+         element: <Bookservices></Bookservices>,
          loader : ({params})=> fetch(`http://localhost:5007/services/${params.id}`)
        }
     ]
