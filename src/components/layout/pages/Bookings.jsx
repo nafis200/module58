@@ -37,6 +37,12 @@ const Bookings = () => {
          .then(res => res.json())
          .then(data => {
              console.log(data)
+             const remaining = bookings.filter(booking => booking._id !== id)
+
+             const updated = bookings.find(booking => booking._id === id)
+             updated.status = 'confirm'
+             const newBookings = [updated,...remaining]
+             setBookings(newBookings)
          })
     }
     

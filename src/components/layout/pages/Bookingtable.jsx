@@ -1,5 +1,5 @@
 const Bookingtable = ({ booking,handleDelete,handleConfirm }) => {
-  const {_id, customerName, img, email, date, price } = booking;
+  const {_id, customerName, img, email, date, price,status } = booking;
   
 
 
@@ -43,7 +43,9 @@ const Bookingtable = ({ booking,handleDelete,handleConfirm }) => {
       <td>{email}</td>
       <td>${price}</td>
       <th>
-        <button onClick={()=>handleConfirm(_id)} className="btn btn-ghost btn-xs">Confirms</button>
+       {
+         status === 'confirm' ? <span className="font-bold text-primary text-5xl">Confirmed</span> : <button onClick={()=>handleConfirm(_id)} className="btn btn-ghost btn-xs">please Confirms</button>
+       }
       </th>
     </tr>
   );
