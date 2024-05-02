@@ -26,6 +26,19 @@ const Bookings = () => {
         })
     
     }
+
+    const handleConfirm = id =>{
+         fetch(`http://localhost:5007/bookings/${id}`,{
+            method: 'PATCH',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({status: 'confirm'})         })
+         .then(res => res.json())
+         .then(data => {
+             console.log(data)
+         })
+    }
     
     return (
         <div>
@@ -50,7 +63,7 @@ const Bookings = () => {
     <tbody>
       
       {
-        bookings.map(booking=> <Bookingtable key={booking._id} booking={booking} handleDelete={handleDelete}></Bookingtable>)
+        bookings.map(booking=> <Bookingtable key={booking._id} booking={booking} handleDelete={handleDelete} handleConfirm={handleConfirm}></Bookingtable>)
       }
        
     </tbody>
