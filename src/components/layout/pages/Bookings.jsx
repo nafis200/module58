@@ -14,6 +14,18 @@ const Bookings = () => {
         .then(res => res.json())
         .then(data => setBookings(data))
     },[])
+
+    const handleDelete = id =>{
+        fetch(`http://localhost:5007/bookings/${id}`,{
+            method:'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            const remaining = bookings.filter(booking=> booking._id !== id)
+            setBookings(remaining)
+        })
+    
+    }
     
     return (
         <div>
@@ -38,7 +50,7 @@ const Bookings = () => {
     <tbody>
       
       {
-        bookings.map(booking=> <Bookingtable key={booking._id} booking={booking}></Bookingtable>)
+        bookings.map(booking=> <Bookingtable key={booking._id} booking={booking} handleDelete={handleDelete}></Bookingtable>)
       }
        
     </tbody>
