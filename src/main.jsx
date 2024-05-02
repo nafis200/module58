@@ -13,6 +13,8 @@ import Registration from './components/layout/pages/form/Registration';
 import Authprovider from './providers/Authprovider';
 import Checkout from './components/layout/pages/Checkout';
 import Bookservices from './components/layout/pages/Bookservices';
+import Bookings from './components/layout/pages/Bookings';
+import Privateroute from './providers/Privateroute';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
          path:'/book/:id',
          element: <Bookservices></Bookservices>,
          loader : ({params})=> fetch(`http://localhost:5007/services/${params.id}`)
+       },
+       {
+         path:'/bookings',
+         element: <Privateroute><Bookings></Bookings></Privateroute>  ,
        }
     ]
   },

@@ -14,14 +14,29 @@ const Bookservices = () => {
         const name = form.name.value
         const date = form.date.value 
         const email = user?.email
+        const img = form.img.value
         const order = {
-            customerName : name,
+            customerName: name,
+            img,
             email,
             date,
+            service: title,
             service: _id,
             price:price
         }
        console.log(order);
+
+       fetch('http://localhost:5007/bookings',{
+         method: 'POST',
+         headers:{
+             'content-type' : 'application/json'
+         },
+         body:JSON.stringify(order)
+       })
+       .then(res => res.json())
+       .then(data =>{
+          console.log(data)
+       })
 
     }
     return (
@@ -74,6 +89,18 @@ const Bookservices = () => {
                   placeholder="Due amount"
                   className="input input-bordered"
                   defaultValue= {'$'+price}
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">image</span>
+                </label>
+                <input
+                  type="text"
+                  name ="img"
+                  placeholder="image"
+                  className="input input-bordered"
+                 
                 />
               </div>
               
