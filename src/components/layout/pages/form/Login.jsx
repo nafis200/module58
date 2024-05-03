@@ -23,14 +23,19 @@ const Login = () => {
         .then(result =>{
             const loggedInUser = result.user;
             const user = {email}
-            // navigate(location?.state ? location?.state :'/')
+            
             axios.post('http://localhost:5007/jwt',user,{withCredentials: true})
-            .then(res => console.log(res.data))
+            .then(res => {
+              console.log(res.data)
+              if(res.data.success){
+                 navigate(location?.state ? location?.state :'/')
+              }
+            })
             
         })
         .catch(error => console.log(error))
 
-    }
+    } 
 
     return (
         <div className="hero min-h-screen bg-base-200">
