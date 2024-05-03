@@ -9,7 +9,7 @@ const Bookings = () => {
     const {user} = useContext(AuthContext)
     const [bookings,setBookings] = useState([])
    
-    const url = `http://localhost:5007/bookings?emails=${user.email}`
+    const url = `http://localhost:5007/bookings?emails=${user?.email}`
     useEffect(()=>{
         // fetch(url)
         // .then(res => res.json())
