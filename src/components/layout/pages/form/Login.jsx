@@ -1,13 +1,18 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/Authprovider";
+import { useLocation, useNavigate } from "react-router";
 
 
 
 
 const Login = () => {
+  
+  const {signIn} = useContext(AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
+  console.log(location);
 
     const handleLogin = event =>{
-        const {signIn} = useContext(AuthContext)
         event.preventDefault()
         console.log('hellow');
         const form = event.target;
@@ -17,6 +22,8 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate(location?.state ? location?.state : '/')
+            
         })
         .catch(error => console.log(error))
 
