@@ -1,17 +1,19 @@
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+// import { useState } from "react";
 import Servicecard from "./Servicecard";
+import useServices from "./useServices";
 
 
 
 const Services = () => {
-    const [services, setServices] = useState([])
-    useEffect(()=>{
-         fetch('http://localhost:5007/services')
-         .then(res => res.json())
-         .then(data => setServices(data))
-    },[])
-    console.log(services);
+    // const [services, setServices] = useState([])
+    // useEffect(()=>{
+    //      fetch('http://localhost:5007/services')
+    //      .then(res => res.json())
+    //      .then(data => setServices(data))
+    // },[])
+    const services = useServices()
+    console.log(services)
     return (
         <div className="mt-10">
             
