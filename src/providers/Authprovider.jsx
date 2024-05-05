@@ -29,15 +29,25 @@ const logout = ()=>{
  
  useEffect(()=>{
     const unsubscribe =  onAuthStateChanged(auth,currentUser =>{
+          
+          const userEmail = currentUser?.email || user?.email;
+          const loggedUser = {email :  userEmail}
           setUser(currentUser)
           setLoading(false)
           if(currentUser){
-            const loggedUser = {email : currentUser.email}
+            
             axios.post('http://localhost:5007/jwt',loggedUser, {withCredentials: true})
             .then(res => {
                  console.log('token access',res.data);
             })
           }
+          else{
+             axios.post('http://localhost:5007/logout',loggedUser,{withCredentials:true})
+             .thrn(res =>{
+                 console.log(res.data);
+             })
+          }
+
          
       })
       return () =>{
