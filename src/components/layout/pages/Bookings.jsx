@@ -63,7 +63,7 @@ const Bookings = () => {
         //      setBookings(newBookings)
         //  })
         axiosSecure.patch(`/bookings/${id}`,{
-          body: JSON.stringify({status: 'confirm'}) 
+             status: 'confirm'
         })
         .then(res=>{
            const data = res.data
