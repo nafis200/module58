@@ -3,6 +3,7 @@
 import { useLocation, useNavigate } from "react-router";
 import axios, { Axios } from "axios";
 import useAuth from "../../useAuth";
+import useAxios from "../useAxios";
 
 
 
@@ -25,7 +26,9 @@ const Login = () => {
         .then(result =>{
             const loggedInUser = result.user;
             const user = {  email }
-            axios.post('http://localhost:5007/jwt',user,{withCredentials: true})
+            const axiosSecure = useAxios()
+             axios.post('https://module58-2.vercel.app/jwt',user,{withCredentials: true})
+            // axiosSecure.post('/jwt',user)
             .then(res => {
               console.log(res.data)
               if(res.data.success){

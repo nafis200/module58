@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const useServices = () => {
     const [services, setServices] = useState([])
     useEffect(()=>{
-         fetch('http://localhost:5007/services')
+         fetch('https://module58-2.vercel.app/services')
          .then(res => res.json())
          .then(data => setServices(data))
     },[])

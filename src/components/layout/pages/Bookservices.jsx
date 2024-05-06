@@ -26,7 +26,7 @@ const Bookservices = () => {
         }
        console.log(order);
 
-       fetch('http://localhost:5007/bookings',{
+       fetch('https://module58-2.vercel.app/bookings',{
          method: 'POST',
          headers:{
              'content-type' : 'application/json'

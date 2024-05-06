@@ -5,7 +5,7 @@ import useAuth from "../useAuth";
 import { useNavigate } from "react-router";
 
 const axiosSecure = axios.create({
-     baseURL: 'http://localhost:5007',
+     baseURL: 'https://module58-2.vercel.app',
      withCredentials: true
 })
 
@@ -19,13 +19,14 @@ const useAxios = () => {
            console.log('error tracked in the interceptor', error.response) 
            if(error.response.status === 401 || error.response.status === 403){
             console.log('log out the user');
+            logout()
+            .then(()=>{
+                 console.log('logout');
+                 navigate('/login')
+            })
+            .catch(error => console.log(error))
            }
-           logout()
-           .then(()=>{
-                console.log('logout');
-                navigate('/login')
-           })
-           .catch(error => console.log(error))
+          
        }
     )
     },[])

@@ -36,13 +36,13 @@ const logout = ()=>{
           setLoading(false)
           if(currentUser){
             
-            axios.post('http://localhost:5007/jwt',loggedUser, {withCredentials: true})
+            axios.post('https://module58-2.vercel.app/jwt',loggedUser, {withCredentials: true})
             .then(res => {
                  console.log('token access',res.data);
             })
           }
           else{
-             axios.post('http://localhost:5007/logout',loggedUser,{withCredentials:true})
+             axios.post('https://module58-2.vercel.app/logout',loggedUser,{withCredentials:true})
              .thrn(res =>{
                  console.log(res.data);
              })

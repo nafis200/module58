@@ -26,7 +26,7 @@ const Bookings = () => {
     },[url,axiosSecure])
 
     const handleDelete = id =>{
-        // fetch(`http://localhost:5007/bookings/${id}`,{
+        // fetch(`http:///bookings/${id}`,{
         //     method:'DELETE',
         // })
         // .then(res => res.json())

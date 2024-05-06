@@ -36,12 +36,12 @@ const router = createBrowserRouter([
        {
          path: '/checkout/:id',
          element: <Checkout></Checkout>,
-         loader : ({params})=> fetch(`http://localhost:5007/services/${params.id}`)
+         loader : ({params})=> fetch(`https://module58-2.vercel.app/services/${params.id}`)
        },
        {
          path:'/book/:id',
          element: <Privateroute><Bookservices></Bookservices></Privateroute> ,
-         loader : ({params})=> fetch(`http://localhost:5007/services/${params.id}`)
+         loader : ({params})=> fetch(`https://module58-2.vercel.app/services/${params.id}`)
        },
        {
          path:'/bookings',
